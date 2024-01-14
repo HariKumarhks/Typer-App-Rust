@@ -1,0 +1,118 @@
+<div class="container">
+  <!-- Sleep Time -->
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default"
+        >Sleep Time (s):</span
+      >
+    </div>
+    <input
+      type="text"
+      class="form-control"
+      aria-label="Default"
+      aria-describedby="inputGroup-sizing-default"
+      type="number"
+      pattern="[0-9]+[.]*[0-9]+"
+      [(ngModel)]="sleepTime"
+    />
+    <div class="input-group-append">
+      <button
+        class="btn btn-outline-danger"
+        type="button"
+        (click)="clearSleep()"
+      >
+        Clear Sleep Time
+      </button>
+    </div>
+  </div>
+
+  <!-- Select Text -->
+  <!-- Example single danger button -->
+  <div class="btn-group">
+    <button
+      type="button"
+      class="btn btn-info dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      Select Text
+    </button>
+    <ul class="dropdown-menu">
+      @for (item of selectTextMain; track $index) {
+      <li>
+        <a class="dropdown-item" (click)="optionSelected(item)">{{ item }}</a>
+      </li>
+      }
+      <li><hr class="dropdown-divider" /></li>
+      @for (item of selectTextNew; track $index) {
+      <li>
+        <a class="dropdown-item" (click)="optionSelected(item)">{{ item }}</a>
+      </li>
+      }
+    </ul>
+  </div>
+  <button type="button" class="btn btn-primary mr-1" (click)="addSelected()">
+    Add Selected
+  </button>
+  <button type="button" class="btn btn-danger" (click)="clearSaved()">
+    Clear Saved
+  </button>
+  <br /><br />
+
+  <!-- Save and Clear Text -->
+  <button type="button" class="btn btn-primary mr-1" (click)="saveText()">
+    Save Text
+  </button>
+  <button type="button" class="btn btn-danger" (click)="clearText()">
+    Clear Text Box
+  </button>
+
+  <!-- Typing Area -->
+  <textarea
+    class="form-control"
+    id="exampleFormControlTextarea1"
+    rows="10"
+    [(ngModel)]="text"
+  ></textarea>
+
+  <!-- Start Typing -->
+  <div class="text-center">
+    <button type="button" class="btn btn-success btn-lg" (click)="type()">
+      Start Typing
+    </button>
+  </div>
+
+  <!-- Enter or Space -->
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default"
+        >Hit Enter?</span
+      >
+    </div>
+    <div class="input-group-append">
+      <button
+        class="btn btn-outline-danger"
+        type="button"
+        (click)="toggleEnter()"
+      >
+        Enter: {{ enter }}
+      </button>
+    </div>
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default"
+        >Hit Space?</span
+      >
+    </div>
+    <div class="input-group-append">
+      <button
+        class="btn btn-outline-danger"
+        type="button"
+        (click)="toggleTab()"
+      >
+        Tab: {{ tab }}
+      </button>
+    </div>
+  </div>
+
+  <!--  -->
+</div>
