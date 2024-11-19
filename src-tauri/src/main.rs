@@ -3,7 +3,7 @@ Created on Sun Jan 14 16:50:03 2024
 @author: Hari
 */
 
-// Prevents additional console window on Windows in release, DO NOT REMOVE!!
+// Prevents additional console window on Windows in release, DO NOT REMOVE!!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 use enigo::{Enigo, KeyboardControllable};
